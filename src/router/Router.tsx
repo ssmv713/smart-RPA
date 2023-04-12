@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { MemberPage } from "../pages/member";
 import { MemberDetailPage } from "../pages/member/detail";
+import { JobPage } from "../pages/member/job";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,8 @@ const router = createBrowserRouter([
       },
       {
         // 멤버 목록 화면
-        path: "member",
-        element: <MemberPage />,
+        path: "job",
+        element: <JobPage />,
       },
       {
         // 멤버 상세 화면
