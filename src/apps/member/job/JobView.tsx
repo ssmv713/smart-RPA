@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Switch } from "@mui/material";
 import { CustomButton } from "../../../common/components/buttons/CustomButton";
 import { CustomSearchBar } from "../../../common/components/searchBar/SearchBar";
 import { SelectBox } from "../../../common/components/SelectBox.tsx/SelectBox";
 import { Color } from "../../../common/theme/color";
+import { JobCard } from "./components/JobCard";
+import { useState } from "react";
 
 export const JobView = () => {
   return (
@@ -34,8 +36,8 @@ export const JobView = () => {
       </Stack>
       <CardsWrap>
         <EmptyCard></EmptyCard>
-        <Card></Card>
-        <Card></Card>
+        <JobCard></JobCard>
+        <JobCard></JobCard>
         <Card></Card>
         <Card></Card>
         <Card></Card>
@@ -45,7 +47,7 @@ export const JobView = () => {
 };
 
 const Root = styled.div`
-  width: 100%;
+  width: 1920px;
   background: ${Color.BgColor};
   padding: 26px 20px;
 `;
