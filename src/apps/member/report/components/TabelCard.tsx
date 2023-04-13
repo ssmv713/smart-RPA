@@ -9,7 +9,7 @@ const listModels = [
   { title: "상태", width: "10%" },
   { title: "프로젝트", width: "20%" },
   { title: "프로세스", width: "20%" },
-  { title: "봇(그룹)", width: "15%" },
+  { title: "봇(그룹)", width: "15%", img: "/assets/bot_group.png" },
 ];
 
 export const TabelCard = () => {
@@ -34,12 +34,18 @@ export const TabelCard = () => {
       <Lists>
         {listModels.map((it, index) => (
           <List key={index} width={it.width}>
+            {it.img && (
+              <div>
+                <img src={it.img} />
+              </div>
+            )}
             <Typography fontSize="14px" color="#c0c0c0" letterSpacing="-1">
               {it.title}
             </Typography>
           </List>
         ))}
       </Lists>
+      <DataBox>{"조회된 데이터 결과가 존재하지 않습니다."}</DataBox>
     </Card>
   );
 };
@@ -75,4 +81,13 @@ type ListType = {
 };
 const List = styled.li<ListType>`
   width: ${(props) => props.width};
+  display: flex;
+  gap: 4px;
+`;
+const DataBox = styled(Stack)`
+  height: 100%;
+  border-bottom: solid 1px #5c6371;
+  color: ${Color.GrayText};
+  align-items: center;
+  justify-content: center;
 `;
