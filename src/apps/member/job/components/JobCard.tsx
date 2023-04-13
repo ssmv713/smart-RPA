@@ -23,6 +23,7 @@ export const JobCard = ({ date }: JobCardType) => {
     border-radius: 12px;
     background: ${bgColor};
     padding: 16px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.8);
   `;
   const SmallFont = styled(Typography)`
     color: ${textColor};
@@ -46,12 +47,16 @@ export const JobCard = ({ date }: JobCardType) => {
         </Stack>
         <img src="/assets/info.png" alt="info" />
       </Stack>
-      <Stack direction="row" alignItems="center">
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography fontSize="32px" color={isOn ? Color.BgColor : "#fff"}>
           {"BOT-D5JSQ"}
         </Typography>
-        <Switch onChange={(e) => handleSwitch(e.target.checked)} />
-        <Switch></Switch>
+        <StyledSwtich
+          checked={isOn}
+          onChange={(e) => handleSwitch(e.target.checked)}
+          className={isOn ? "switched" : ""}
+        />
+        {/* <Switch></Switch> */}
       </Stack>
       <Stack>
         <Truncate
@@ -77,6 +82,29 @@ const CPU = styled.img`
 const Memory = styled.img`
   width: 30px;
   height: 13px;
+`;
+
+const StyledSwtich = styled(Switch)`
+  transform: translateX(20px);
+  & .MuiSwitch-thumb {
+    width: 12px;
+    height: 12px;
+  }
+  & .MuiSwitch-track {
+    width: 26px;
+    background: #576273;
+  }
+  &.switched .MuiSwitch-track {
+    background: #354257;
+    opacity: 1;
+  }
+  & .MuiButtonBase-root {
+    padding: 13px;
+  }
+  &.switched .MuiButtonBase-root {
+    color: #fff;
+    transform: translateX(14px);
+  }
 `;
 
 type TruncateType = {

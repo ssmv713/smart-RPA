@@ -20,6 +20,7 @@ export const CustomSearchBar = ({
             width: "100%",
             fontSize: "13px",
             color: "#e1e1e1",
+            cursor: "pointer",
             "&::placeholder": {
               color: "#e1e1e1",
               opacity: 1,
@@ -45,4 +46,8 @@ const SearchBar = styled.div<SearchBarProps>`
   border-radius: 20px;
   padding: 4px 20px;
   width: ${(props) => props.customWidth};
+
+  & .input {
+    width: 300px;
+  }
 `;

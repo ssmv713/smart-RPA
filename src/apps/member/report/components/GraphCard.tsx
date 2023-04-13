@@ -8,7 +8,7 @@ export const GraphCard = () => {
       <Typography color={Color.WhiteText} fontSize="24px">
         {"프로세스별 수행시간"}
       </Typography>
-      <Stack direction="row">
+      <Stack direction="row" alignItems="center">
         <Typography mr="8px" fontSize="20px" color={Color.WhiteText}>
           {"기간"}
         </Typography>

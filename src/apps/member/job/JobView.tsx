@@ -6,19 +6,34 @@ import { SelectBox } from "../../../common/components/SelectBox.tsx/SelectBox";
 import { Color } from "../../../common/theme/color";
 import { CardModels } from "./model/CardModels";
 import { JobCard, NewJobButton, StopButton } from "./components";
+import { useState } from "react";
+import { NewSelectBox } from "../../../common/components/SelectBox.tsx/NewSelectBox";
 
 export const JobView = () => {
+  const ButtonModels = ["전체 5", "가동중 1", "비가동중 0"];
+  const [selectedButton, setSelectedButton] = useState(0);
+  const handleClick = (index: number) => {
+    setSelectedButton(index);
+  };
   return (
     <Root>
       <Content>
         <Stack direction="row" justifyContent="space-between">
           <Stack direction="row" gap="6px">
-            <CustomButton disableRipple>{"전체 5"}</CustomButton>
-            <CustomButton disableRipple>{"가동중 1"}</CustomButton>
-            <CustomButton disableRipple>{"비가동중 0"}</CustomButton>
+            {ButtonModels.map((it, index) => (
+              <CustomButton
+                onClick={() => handleClick(index)}
+                disableRipple
+                key={index}
+                className={index === selectedButton ? "selected" : ""}
+              >
+                {it}
+              </CustomButton>
+            ))}
           </Stack>
           <Stack direction="row" gap="8px">
-            <SelectBox />
+            <NewSelectBox></NewSelectBox>
+
             <CustomSearchBar
               customWidth="362px"
               bgColor={Color.HeaderBgColor}
@@ -39,7 +54,9 @@ export const JobView = () => {
           </Typography>
         </Stack>
         <CardsWrap>
-          <EmptyCard></EmptyCard>
+          <EmptyCard>
+            <img src="assets/plus.png" alt="plus" />
+          </EmptyCard>
           {CardModels.map((it, index) => (
             <JobCard key={index} date={it.date} />
           ))}
@@ -76,6 +93,7 @@ const Root = styled.div`
 const Content = styled(Stack)`
   background: ${Color.BgColor};
   padding: 26px 20px;
+  padding-bottom: 80px;
 `;
 
 const GreyPlus = styled.img`
@@ -107,10 +125,17 @@ const Card = styled.div`
 
 const EmptyCard = styled(Card)`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.8);
 `;
 
 const JobQue = styled(Stack)`
   background: ${Color.HeaderBgColor};
   height: 60px;
   padding: 0 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;

@@ -27,7 +27,7 @@ export const TabelCard = () => {
             ml="8px"
             color={Color.btnWhiteText}
           >
-            {"엑셀 다운로드폼"}
+            {"엑셀 다운로드"}
           </Typography>
         </ExcelBtn>
       </Stack>
@@ -63,6 +63,9 @@ const ExcelBtn = styled(Button)`
   height: 42px;
   padding: 0 10px;
   background: ${Color.btnColor};
+  &:hover {
+    background: #667080;
+  }
 `;
 
 const Lists = styled.ul`

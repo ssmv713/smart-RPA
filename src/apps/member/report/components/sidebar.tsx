@@ -9,21 +9,28 @@ export const Sidebar = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-
+  const [selectedButton, setSelectedButton] = useState(4);
+  const handleMenuClick = (index: number) => {
+    setSelectedButton(index);
+  };
   return (
     <StyledDrawer width={isOpen ? "240px" : "60px"}>
-      <Typography color={Color.WhiteText} my="20px">
+      <Typography color={Color.WhiteText} my="20px" pl="20px">
         {isOpen ? "Report" : "R"}
       </Typography>
       {SidebarModels.map((it, index) => (
-        <SidebarList direction="row" key={index}>
-          <div>
-            <img src={it.img} alt="clock" />
-          </div>
+        <SidebarList
+          direction="row"
+          key={index}
+          onClick={() => handleMenuClick(index)}
+          className={index == selectedButton ? "menuSelected" : ""}
+        >
+          <img src={it.img} alt="clock" />
+
           <SidebarText
             display={isOpen ? "block" : "none"}
             fontSize="14px"
-            color={Color.GrayText}
+            color={index == selectedButton ? Color.BrandMain : Color.GrayText}
             ml="8px"
           >
             {it.title}
@@ -48,7 +55,6 @@ interface StyledDrawerProprs {
 const StyledDrawer = styled(Stack)<StyledDrawerProprs>`
   background: ${Color.sidebarColor};
   width: ${(props) => props.width};
-  padding-left: 20px;
   position: relative;
   transition: all 0.4s;
   height: 100%;
@@ -56,7 +62,12 @@ const StyledDrawer = styled(Stack)<StyledDrawerProprs>`
 `;
 const SidebarList = styled(Stack)`
   height: 45px;
-  /* overflow: hidden; */
+  align-items: center;
+  padding-left: 20px;
+  cursor: pointer;
+  &.menuSelected {
+    background: #2d384b;
+  }
 `;
 interface SidebarTextProps {
   // opacity: number;
@@ -65,7 +76,9 @@ interface SidebarTextProps {
 
 const SidebarText = styled(Typography)<SidebarTextProps>`
   display: ${(props) => props.display};
-  transition: all 4s;
+
+  height: 22px;
+  overflow: hidden;
 `;
 
 const Arrow = styled(Button)`
@@ -73,6 +86,7 @@ const Arrow = styled(Button)`
   right: -20px;
   top: 20px;
   padding: 10px;
+  border-radius: 0 12px 12px 0;
   background: ${Color.sidebarColor};
   min-width: 20px;
   &:hover {

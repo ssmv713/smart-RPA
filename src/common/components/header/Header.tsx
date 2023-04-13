@@ -7,13 +7,13 @@ import { CustomSearchBar } from "../searchBar/SearchBar";
 
 export const Header = () => {
   const navModel = [
-    { list: "DASHBOARD", link: "job" },
-    { list: "SCENARIO", link: "job" },
-    { list: "BOT", link: "job" },
+    { list: "DASHBOARD", link: "#!" },
+    { list: "SCENARIO", link: "#!" },
+    { list: "BOT", link: "#!" },
     { list: "JOB", link: "job" },
     { list: "REPORT", link: "report" },
   ];
-  const [selectedButton, setSelectedButton] = useState(0);
+  const [selectedButton, setSelectedButton] = useState(3);
   const handleClick = (index: number) => {
     setSelectedButton(index);
   };

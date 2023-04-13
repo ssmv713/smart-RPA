@@ -10,8 +10,11 @@ export const CustomButton = styled(Button)`
   border-radius: 20px;
   font-size: 14px !important;
   font-weight: 500;
-  &:focus {
+  &.selected {
     background: ${Color.BrandMain};
     color: ${Color.activeText};
+  }
+  &:hover {
+    background: #667080;
   }
 `;

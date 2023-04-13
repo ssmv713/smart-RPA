@@ -13,7 +13,7 @@ const router = createBrowserRouter([
       {
         // 메인 화면
         path: "",
-        element: <MemberPage />,
+        element: <JobPage />,
       },
       {
         // 멤버 목록 화면
