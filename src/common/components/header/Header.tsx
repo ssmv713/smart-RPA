@@ -11,7 +11,7 @@ export const Header = () => {
     { list: "SCENARIO", link: "job" },
     { list: "BOT", link: "job" },
     { list: "JOB", link: "job" },
-    { list: "REPORT", link: "job" },
+    { list: "REPORT", link: "report" },
   ];
   const [selectedButton, setSelectedButton] = useState(0);
   const handleClick = (index: number) => {

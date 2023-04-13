@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
 import { MemberPage } from "../pages/member";
-import { MemberDetailPage } from "../pages/member/detail";
+import { ReportPage } from "../pages/member/report";
 import { JobPage } from "../pages/member/job";
 
 const router = createBrowserRouter([
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
       },
       {
         // 멤버 상세 화면
-        path: "member-detail",
-        element: <MemberDetailPage />,
+        path: "report",
+        element: <ReportPage />,
       },
     ],
   },

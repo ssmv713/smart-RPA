@@ -4,7 +4,11 @@ import { Color } from "../../../../common/theme/color";
 import { Battery } from "./battery";
 import { useState } from "react";
 
-export const JobCard = () => {
+type JobCardType = {
+  date: string;
+};
+
+export const JobCard = ({ date }: JobCardType) => {
   const [isOn, setIsOn] = useState(false);
   const handleSwitch = (checked: boolean) => {
     setIsOn(checked);
@@ -26,7 +30,7 @@ export const JobCard = () => {
   `;
 
   return (
-    <StyleCard>
+    <StyleCard justifyContent="space-between">
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Stack direction="row" alignItems="center">
           <CPU src="/assets/cpu.png" alt="cpu" />
@@ -49,6 +53,19 @@ export const JobCard = () => {
         <Switch onChange={(e) => handleSwitch(e.target.checked)} />
         <Switch></Switch>
       </Stack>
+      <Stack>
+        <Truncate
+          color={isOn ? Color.BgColor : Color.WhiteText}
+          text="DESKTOP-JOMBBCI/192.168.2190"
+          maxLength={27}
+        />
+        <Typography
+          color={isOn ? Color.BgColor : Color.GrayText}
+          fontSize="18px"
+        >
+          {date}
+        </Typography>
+      </Stack>
     </StyleCard>
   );
 };
@@ -61,3 +78,24 @@ const Memory = styled.img`
   width: 30px;
   height: 13px;
 `;
+
+type TruncateType = {
+  text: string;
+  maxLength: number;
+  color: string;
+};
+
+const Truncate = ({ text, maxLength, color }: TruncateType) => {
+  if (text.length > maxLength) {
+    return (
+      <Typography color={color} fontSize="18px">
+        {text.slice(0, maxLength)}···
+      </Typography>
+    );
+  }
+  return (
+    <Typography color={Color.WhiteText} fontSize="18px">
+      {text}
+    </Typography>
+  );
+};

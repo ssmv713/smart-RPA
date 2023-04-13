@@ -9,6 +9,9 @@ export enum Color {
   btnColor = "#576273",
   activeText = " #354257",
   btnWhiteText = "#e0e0e0",
+  btnNavyText = "#354257",
+
+  sidebarColor = "#152137",
 
   HeaderBgColor = "#0f1a2f",
   BgColor = "#212C40",
