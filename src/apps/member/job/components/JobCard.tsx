@@ -95,8 +95,8 @@ const StyledSwtich = styled(Switch)`
     background: #576273;
   }
   &.switched .MuiSwitch-track {
-    background: #354257;
-    opacity: 1;
+    background: #354257 !important;
+    opacity: 1 !important;
   }
   & .MuiButtonBase-root {
     padding: 13px;
