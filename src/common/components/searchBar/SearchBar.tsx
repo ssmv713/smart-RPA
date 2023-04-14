@@ -20,7 +20,7 @@ export const CustomSearchBar = ({
             width: "100%",
             fontSize: "13px",
             color: "#e1e1e1",
-            cursor: "pointer",
+
             "&::placeholder": {
               color: "#e1e1e1",
               opacity: 1,
@@ -49,5 +49,8 @@ const SearchBar = styled.div<SearchBarProps>`
 
   & .input {
     width: 300px;
+  }
+  & img {
+    cursor: pointer;
   }
 `;

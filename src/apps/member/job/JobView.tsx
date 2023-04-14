@@ -88,12 +88,14 @@ export const JobView = () => {
 const Root = styled.div`
   width: 1920px;
   height: 1012px;
+  position: relative;
 `;
 
 const Content = styled(Stack)`
   background: ${Color.BgColor};
   padding: 26px 20px;
-  padding-bottom: 80px;
+  padding-bottom: 43px;
+  height: 100%;
 `;
 
 const GreyPlus = styled.img`
@@ -114,6 +116,18 @@ const CardsWrap = styled.div`
   grid-row-gap: 12px;
   justify-items: center;
   margin-top: 4px;
+  overflow: scroll;
+  padding-bottom: 12px;
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 7px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 `;
 
 const Card = styled.div`
