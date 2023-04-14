@@ -34,18 +34,27 @@ export const JobCard = ({ date }: JobCardType) => {
     <StyleCard justifyContent="space-between">
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Stack direction="row" alignItems="center">
-          <CPU src="/assets/cpu.png" alt="cpu" />
+          <CPU
+            src={isOn ? "/assets/cpu_black.png" : "/assets/cpu.png"}
+            alt="cpu"
+          />
           <SmallFont mx="4px">CPU</SmallFont>
           <Battery customWidth="10%"></Battery>
           <SmallFont ml="4px" mr="6px">
             6%
           </SmallFont>
-          <Memory src="/assets/memory.png" alt="memory" />
+          <Memory
+            src={isOn ? "/assets/memory_black.png" : "/assets/memory.png"}
+            alt="memory"
+          />
           <SmallFont mx="4px">Memory</SmallFont>
           <Battery customWidth="40%"></Battery>
           <SmallFont ml="4px">32%</SmallFont>
         </Stack>
-        <img src="/assets/info.png" alt="info" />
+        <img
+          src={isOn ? "/assets/info_black.png" : "/assets/info.png"}
+          alt="info"
+        />
       </Stack>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography fontSize="32px" color={isOn ? Color.BgColor : "#fff"}>
