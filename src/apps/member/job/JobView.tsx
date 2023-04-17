@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
-import { Stack, Typography, Switch } from "@mui/material";
+import { Stack, Typography, Button } from "@mui/material";
 import { CustomButton } from "../../../common/components/buttons/CustomButton";
 import { CustomSearchBar } from "../../../common/components/searchBar/SearchBar";
-import { SelectBox } from "../../../common/components/SelectBox.tsx/SelectBox";
+
 import { Color } from "../../../common/theme/color";
 import { CardModels } from "./model/CardModels";
 import { JobCard, NewJobButton, StopButton } from "./components";
 import { useState } from "react";
 import { NewSelectBox } from "../../../common/components/SelectBox.tsx/NewSelectBox";
+import { CustomSelectBox } from "../../../common/components/SelectBox.tsx/customSelectBox";
 
 export const JobView = () => {
   const ButtonModels = ["전체 5", "가동중 1", "비가동중 0"];
@@ -32,11 +33,11 @@ export const JobView = () => {
             ))}
           </Stack>
           <Stack direction="row" gap="8px">
-            <NewSelectBox></NewSelectBox>
-
+            <CustomSelectBox />
             <CustomSearchBar
-              customWidth="362px"
+              customWidth="522px"
               bgColor={Color.HeaderBgColor}
+              placeholder="봇 이름, 프로새스(플로우) 이름, 실행요청 정보로 검색"
             />
           </Stack>
         </Stack>
@@ -46,16 +47,24 @@ export const JobView = () => {
           justifyContent="flex-end"
           mt="26px"
         >
-          <GreyPlus src="/assets/job_new_grey.png" alt="plus" />
-
-          <Trash src="/assets/trash_grey.png" alt="plus" />
+          <Button sx={{ minWidth: "10px" }} disableRipple>
+            <GreyPlus src="/assets/job_new_grey.png" alt="plus" />
+          </Button>
+          <Button sx={{ minWidth: "10px", padding: "0" }} disableRipple>
+            <Trash src="/assets/trash_grey.png" alt="plus" />
+          </Button>
           <Typography color={Color.BrandMain} fontSize="14px">
             {"1 - 1 / 1"}
           </Typography>
         </Stack>
         <CardsWrap>
           <EmptyCard>
-            <img src="assets/plus.png" alt="plus" />
+            <Button
+              disableRipple
+              sx={{ "&:hover": { backgroundColor: "transparent" } }}
+            >
+              <img src="assets/plus.png" alt="plus" />
+            </Button>
           </EmptyCard>
           {CardModels.map((it, index) => (
             <JobCard key={index} date={it.date} />

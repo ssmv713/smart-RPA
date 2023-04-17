@@ -51,4 +51,10 @@ const StyledSelect = styled.select`
   background-position: right center;
   background-size: 11px 6px;
   border-radius: 20px;
+  & option {
+    background: ${Color.HeaderBgColor};
+    &:focus {
+      background: ${Color.btnNavyText};
+    }
+  }
 `;

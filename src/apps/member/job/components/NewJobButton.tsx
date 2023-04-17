@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const NewJobButton = () => {
   return (
-    <StyledNewButton>
+    <StyledNewButton disableRipple>
       <img src="assets/job_new.png" alt="plus" />
       <Typography fontSize="14px" fontWeight="500" color={Color.HeaderBgColor}>
         새로운 Job
@@ -15,4 +15,7 @@ export const NewJobButton = () => {
 
 const StyledNewButton = styled(Button)`
   background-color: ${Color.BrandMain};
+  &:hover {
+    background-color: ${Color.BrandMain};
+  }
 `;

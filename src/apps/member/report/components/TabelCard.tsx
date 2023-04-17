@@ -19,7 +19,7 @@ export const TabelCard = () => {
         <Typography color={Color.WhiteText} fontSize="15px">
           총 0
         </Typography>
-        <ExcelBtn>
+        <ExcelBtn disableRipple>
           <img src="assets/download.png" alt="download" />
           <Typography
             letterSpacing="-1"
@@ -36,7 +36,7 @@ export const TabelCard = () => {
           <List key={index} width={it.width}>
             {it.img && (
               <div>
-                <img src={it.img} />
+                <img src={it.img} alt="icons" />
               </div>
             )}
             <Typography fontSize="14px" color="#c0c0c0" letterSpacing="-1">
@@ -64,7 +64,7 @@ const ExcelBtn = styled(Button)`
   padding: 0 10px;
   background: ${Color.btnColor};
   &:hover {
-    background: #667080;
+    background: ${Color.btnColor};
   }
 `;
 

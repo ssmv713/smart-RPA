@@ -4,17 +4,19 @@ import { InputBase } from "@mui/material";
 type CustomSearchBarType = {
   customWidth: string;
   bgColor: string;
+  placeholder:string;
 };
 
 export const CustomSearchBar = ({
   customWidth,
   bgColor,
+  placeholder,
 }: CustomSearchBarType) => {
   return (
     <SearchBar customWidth={customWidth} bgColor={bgColor}>
       <InputBase
         className="input"
-        placeholder="Search"
+        placeholder={placeholder}
         sx={{
           input: {
             width: "100%",

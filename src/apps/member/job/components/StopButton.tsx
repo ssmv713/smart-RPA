@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const StopButton = () => {
   return (
-    <StyledStopButton>
+    <StyledStopButton disableRipple>
       <img src="assets/job_stop.png" alt="stop" />
       <Typography fontSize="14px" color={Color.WhiteText} ml="8px">
         Job 중지
@@ -16,4 +16,7 @@ export const StopButton = () => {
 const StyledStopButton = styled(Button)`
   background-color: ${Color.btnColor};
   margin-right: 20px;
+  &:hover {
+    background-color: ${Color.btnColor};
+  }
 `;

@@ -13,8 +13,11 @@ export const CustomButton = styled(Button)`
   &.selected {
     background: ${Color.BrandMain};
     color: ${Color.activeText};
+    &:hover {
+      background: ${Color.BrandMain};
+    }
   }
   &:hover {
-    background: #667080;
+    background: ${Color.btnColor};
   }
 `;

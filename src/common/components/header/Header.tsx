@@ -19,7 +19,10 @@ export const Header = () => {
   };
   return (
     <HeaderWrap direction="row" alignItems="center">
-      <img src="/assets/logo.png" alt="logo" />
+      <Link to="#!">
+        <img src="/assets/logo.png" alt="logo" />
+      </Link>
+
       <Nav>
         {navModel.map((it, index) => (
           <li key={index}>
@@ -43,12 +46,16 @@ export const Header = () => {
       </Nav>
       <Stack direction="row" alignItems="center">
         {/* 서치바 */}
-        <CustomSearchBar customWidth="280px" bgColor="#000" />
-        <Round>
+        <CustomSearchBar
+          customWidth="280px"
+          bgColor="#000"
+          placeholder="봇 이름, 프로새스(플로우) 이름, 실행요청 정보로 검색"
+        />
+        <Round disableRipple>
           <Noti src="/assets/noti.png" alt="noti" />
           <RedNumber>{"2"}</RedNumber>
         </Round>
-        <Round>
+        <Round disableRipple>
           <Profile src="/assets/profile.png" alt="profile" />
         </Round>
       </Stack>
@@ -86,8 +93,8 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Round = styled.div`
-  width: 38px;
+const Round = styled(Button)`
+  min-width: 38px;
   height: 38px;
   background-color: #202b3d;
   border-radius: 50%;

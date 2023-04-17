@@ -3,6 +3,7 @@ import { Stack, Switch, Typography } from "@mui/material";
 import { Color } from "../../../../common/theme/color";
 import { Battery } from "./battery";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type JobCardType = {
   date: string;
@@ -51,10 +52,12 @@ export const JobCard = ({ date }: JobCardType) => {
           <Battery customWidth="40%"></Battery>
           <SmallFont ml="4px">32%</SmallFont>
         </Stack>
-        <img
-          src={isOn ? "/assets/info_black.png" : "/assets/info.png"}
-          alt="info"
-        />
+        <Link to="#!">
+          <InfoImage
+            src={isOn ? "/assets/info_black.png" : "/assets/info.png"}
+            alt="info"
+          />
+        </Link>
       </Stack>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography fontSize="32px" color={isOn ? Color.BgColor : "#fff"}>
@@ -65,7 +68,6 @@ export const JobCard = ({ date }: JobCardType) => {
           onChange={(e) => handleSwitch(e.target.checked)}
           className={isOn ? "switched" : ""}
         />
-        {/* <Switch></Switch> */}
       </Stack>
       <Stack>
         <Truncate
@@ -114,6 +116,9 @@ const StyledSwtich = styled(Switch)`
     color: #fff;
     transform: translateX(14px);
   }
+`;
+const InfoImage = styled.img`
+  display: block;
 `;
 
 type TruncateType = {
